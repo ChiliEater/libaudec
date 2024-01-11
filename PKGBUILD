@@ -9,17 +9,17 @@ url="https://git.sr.ht/~alextee/libaudec"
 license=('AGPL3')
 depends=("libsamplerate" "libsndfile")
 makedepends=("meson" "ninja" "cmake")
-source=("$pkgname-v$pkgver::https://github.com/zrythm/libaudec/archive/refs/tags/v$pkgver.tar.gz")
+source=("$pkgname-$pkgver::https://github.com/zrythm/libaudec/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('9a53eb292804818ddd8b19f749f64257ca586b54672494daf138092858935115')
 
 prepare() {
-	cd "$pkgname-v$pkgver"
+	cd "$pkgname-$pkgver"
 
     rm -r subprojects
 }
 
 build() {
-	cd "$pkgname-v$pkgver"
+	cd "$pkgname-$pkgver"
 
     meson build --buildtype=release --prefix=/usr \
       -Dtests=true
@@ -27,13 +27,13 @@ build() {
 }
 
 check() {
-	cd "$pkgname-v$pkgver"
+	cd "$pkgname-$pkgver"
 
     ninja -C build test
 }
 
 package() {
-	cd "$pkgname-v$pkgver"
+	cd "$pkgname-$pkgver"
 
     install -vDm 644 CHANGELOG.md README.md \
       -t "${pkgdir}/usr/share/doc/${pkgname}/"
