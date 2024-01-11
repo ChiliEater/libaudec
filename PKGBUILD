@@ -9,8 +9,8 @@ url="https://git.sr.ht/~alextee/libaudec"
 license=('AGPL3')
 depends=("libsamplerate" "libsndfile")
 makedepends=("meson" "ninja" "cmake")
-source=("$pkgname-v$pkgver::https://git.sr.ht/~alextee/libaudec/archive/v$pkgver.tar.gz")
-sha256sums=('edaf7cb187c5e0235e527cde741708e7c8144c9a0c837182dd36d61f5ea26f23')
+source=("$pkgname-v$pkgver::https://github.com/zrythm/libaudec/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('9a53eb292804818ddd8b19f749f64257ca586b54672494daf138092858935115')
 
 prepare() {
 	cd "$pkgname-v$pkgver"
